@@ -76,13 +76,6 @@ function checkMatch(){
     console.log(cards);
     console.log('Check for match!');
     
-    if(optionOneId == optionTwoId) {
-        cards[optionOneId].setAttribute('src', 'images/blank.png');
-        cards[optionTwoId].setAttribute('src', 'images/blank.png');
-        alert('You have clicked the same image!');
-
-    }
-
     if(cardsChosen[0] == cardsChosen[1]) {
         alert('You find a match!');
         cards[optionOneId].setAttribute('src','images/white.png');
@@ -108,6 +101,7 @@ function checkMatch(){
 function flipCard(){
     const cardId = this.getAttribute('data-id');
     cardsChosen.push(cardArray[cardId].name);    
+    cardsChosenIds.push(cardId);
     this.setAttribute('src', cardArray[cardId].img);
     if(cardsChosen.length === 2) {
         setTimeout(checkMatch, 500);
